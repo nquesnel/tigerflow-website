@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TigerFlow Icon 512x512</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: #000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        /* Exact 512x512 icon */
+        .icon {
+            width: 512px;
+            height: 512px;
+            background: linear-gradient(135deg, #FF6B35 0%, #FFB627 100%);
+            border-radius: 114px; /* Webflow style rounded corners */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 280px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Subtle glow effect */
+        .icon::after {
+            content: '';
+            position: absolute;
+            bottom: -50%;
+            right: -50%;
+            width: 150%;
+            height: 150%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+        }
+
+        /* Instructions */
+        .instructions {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+            font-family: -apple-system, sans-serif;
+            text-align: center;
+            max-width: 400px;
+        }
+
+        .instructions h3 {
+            margin: 0 0 10px 0;
+            color: #FF6B35;
+        }
+
+        .instructions code {
+            background: #f0f0f0;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-family: monospace;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <div class="icon">🐯</div>
+    
+    <div class="instructions">
+        <h3>How to save as PNG:</h3>
+        <p><strong>Option 1:</strong> Screenshot with <code>Cmd + Shift + 4</code></p>
+        <p><strong>Option 2:</strong> Right-click the icon → "Open Image in New Tab" → Save</p>
+        <p><strong>Option 3:</strong> Open Developer Tools → Console → Paste this:</p>
+        <code>
+            html2canvas(document.querySelector('.icon')).then(canvas => {
+                const link = document.createElement('a');
+                link.download = 'tigerflow-icon-512.png';
+                link.href = canvas.toDataURL();
+                link.click();
+            });
+        </code>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <script>
+        // Auto-download function (uncomment to use)
+        function downloadIcon() {
+            html2canvas(document.querySelector('.icon'), {
+                backgroundColor: null,
+                scale: 1,
+                width: 512,
+                height: 512
+            }).then(canvas => {
+                const link = document.createElement('a');
+                link.download = 'tigerflow-icon-512.png';
+                link.href = canvas.toDataURL('image/png');
+                link.click();
+            });
+        }
+        
+        // Add keyboard shortcut
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'd' || e.key === 'D') {
+                downloadIcon();
+            }
+        });
+    </script>
+</body>
+</html>
