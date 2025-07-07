@@ -78,7 +78,8 @@ body {
     transition: color 0.3s;
 }
 
-.nav-links a:hover {
+.nav-links a:hover,
+.nav-links a.active {
     color: var(--tiger-orange);
 }
 
@@ -356,19 +357,20 @@ body {
 }
 
 /* Footer */
-.footer {
+footer, .footer {
     background: var(--tiger-black);
     color: white;
-    padding: 3rem 0 1rem;
+    padding: 3rem 0 2rem;
     margin-top: 5rem;
 }
 
 .footer-content {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding-bottom: 2rem;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 4rem;
 }
 
 .footer-brand {
@@ -396,9 +398,44 @@ body {
 
 .footer-bottom {
     text-align: center;
-    padding-top: 2rem;
+    padding: 2rem 20px 0;
     color: rgba(255, 255, 255, 0.6);
     font-size: 0.875rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Footer Section Styles */
+.footer-section h3 {
+    font-size: 1.25rem;
+    margin-bottom: 1rem;
+    color: white;
+    font-weight: 600;
+}
+
+.footer-section p {
+    color: rgba(255, 255, 255, 0.8);
+    line-height: 1.8;
+    margin-bottom: 1rem;
+}
+
+.footer-section ul {
+    list-style: none;
+}
+
+.footer-section li {
+    margin-bottom: 0.75rem;
+}
+
+.footer-section a {
+    color: rgba(255, 255, 255, 0.8);
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.footer-section a:hover {
+    color: var(--tiger-orange);
 }
 
 /* Responsive Design */
@@ -426,7 +463,7 @@ body {
     }
     
     .footer-content {
-        flex-direction: column;
+        grid-template-columns: 1fr;
         gap: 2rem;
     }
     
