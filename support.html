@@ -20,12 +20,12 @@
                 </a>
             </div>
             <div class="nav-links">
-                <a href="index.html">Home</a>
                 <a href="index.html#features">Features</a>
-                <a href="privacy.html">Privacy</a>
-                <a href="terms.html">Terms</a>
+                <a href="index.html#how-it-works">How it Works</a>
+                <a href="pricing.html">Pricing</a>
                 <a href="docs.html">Documentation</a>
-                <a href="support.html">Support</a>
+                <a href="privacy.html">Privacy</a>
+                <a href="support.html" class="active">Support</a>
             </div>
         </div>
     </nav>
@@ -94,9 +94,24 @@
 
                 <h3>How accurate are the readability scores?</h3>
                 <p>TigerFlow uses the Flesch Reading Ease formula, a widely-accepted standard for measuring text readability. While it's a helpful guide, remember that readability also depends on your target audience.</p>
+                
+                <h3>Why can't TigerFlow analyze my entire site at once?</h3>
+                <p>This is due to Webflow's Designer Extension API limitations. Extensions can only access the currently open page in Designer, and analysis stops when you close the extension. This is a security feature by design - Webflow restricts bulk access to protect your site. <strong>Solution:</strong> Use our Bulk Analysis feature (Pro) which builds a comprehensive site audit as you navigate through pages.</p>
+                
+                <h3>How does the Smart Link Assistant work?</h3>
+                <p>The Smart Link Assistant (Pro/Business) helps you build better internal linking by providing link health analysis, orphaned page detection, smart suggestions based on content relevance, and anchor text optimization warnings. It builds a "link graph" of your site as you analyze pages, getting smarter over time.</p>
+                
+                <h3>What's the difference between Free, Pro, and Business tiers?</h3>
+                <p>Free gives you basic SEO analysis for up to 10 pages per month. Pro ($12/mo) adds unlimited pages, E-E-A-T analysis, Smart Link Assistant, bulk analysis, and CSV exports. Business ($29/mo) includes everything in Pro plus schema markup generation, white label options, and priority support. Check our <a href="pricing.html">pricing page</a> for full details.</p>
 
+                <h3>Can I use TigerFlow on published sites?</h3>
+                <p>No, TigerFlow is designed specifically for the Webflow Designer environment. It analyzes pages while you're building them, helping you optimize before publishing. For published site analysis, export your TigerFlow reports and use them alongside tools like Google Search Console.</p>
+                
+                <h3>How do I export my SEO reports?</h3>
+                <p>With Pro or Business tiers, you can export reports by clicking the Export buttons at the top of the TigerFlow panel. Pro users can export to CSV format, while Business users get CSV, PDF, and JSON options. These reports include all analysis data for the current page.</p>
+                
                 <h3>Still need help?</h3>
-                <p>If you can't find an answer to your question, please don't hesitate to <a href="mailto:neal+tigerflow@whatarmy.com">email us</a>. We typically respond within 24 hours.</p>
+                <p>If you can't find an answer to your question, please don't hesitate to <a href="mailto:neal+tigerflow@whatarmy.com">email us</a>. We typically respond within 24 hours. For the most comprehensive documentation, visit our <a href="docs.html">full documentation page</a> which includes detailed How-To guides and troubleshooting tips.</p>
             </div>
         </div>
     </div>

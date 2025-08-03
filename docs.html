@@ -14,12 +14,13 @@
         
         .docs-nav {
             position: sticky;
-            top: 65px;
-            background: #FFF8F0;
+            top: 60px;
+            background: white;
             padding: 20px 0;
             margin-bottom: 40px;
-            border-bottom: 2px solid #FFB627;
+            border-bottom: 1px solid #E9ECEF;
             z-index: 10;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
         }
         
         .docs-nav ul {
@@ -32,10 +33,11 @@
         }
         
         .docs-nav a {
-            color: #1A1A1A;
+            color: #6C757D;
             text-decoration: none;
-            font-weight: 600;
+            font-weight: 500;
             transition: color 0.3s ease;
+            font-size: 14px;
         }
         
         .docs-nav a:hover {
@@ -206,21 +208,73 @@
             background: #F8D7DA;
             color: #721C24;
         }
+        
+        .tier-comparison {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        
+        .tier-comparison th {
+            background: #f8f9fa;
+            padding: 12px;
+            text-align: left;
+            font-weight: 600;
+        }
+        
+        .tier-comparison td {
+            padding: 12px;
+            border-bottom: 1px solid #e9ecef;
+        }
+        
+        .tier-comparison tr:hover {
+            background: #f8f9fa;
+        }
+        
+        .reference-card {
+            background: #F8F9FA;
+            padding: 20px;
+            border-radius: 10px;
+            border: 1px solid #E9ECEF;
+            margin-bottom: 20px;
+        }
+        
+        .reference-card h3 {
+            color: #FF6B35;
+            margin-top: 0;
+            font-size: 1.4em;
+        }
+        
+        .reference-card ul {
+            margin-bottom: 0;
+        }
+        
+        .reference-card kbd {
+            background: #fff;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+            padding: 2px 6px;
+            font-family: monospace;
+            font-size: 0.9em;
+        }
     </style>
 </head>
 <body>
     <nav class="navbar">
         <div class="container">
             <div class="nav-brand">
-                <span class="logo">🐯</span>
-                <span class="brand-name">TigerFlow</span>
+                <a href="index.html" style="text-decoration: none; color: inherit; display: flex; align-items: center; gap: 0.5rem;">
+                    <span class="logo">🐯</span>
+                    <span class="brand-name">TigerFlow</span>
+                </a>
             </div>
             <div class="nav-links">
-                <a href="index.html">Home</a>
-                <a href="#features">Features</a>
+                <a href="index.html#features">Features</a>
+                <a href="index.html#how-it-works">How it Works</a>
+                <a href="pricing.html">Pricing</a>
+                <a href="docs.html" class="active">Documentation</a>
                 <a href="privacy.html">Privacy</a>
                 <a href="support.html">Support</a>
-                <a href="docs.html" class="active">Documentation</a>
             </div>
         </div>
     </nav>
@@ -231,6 +285,7 @@
                 <li><a href="#getting-started">Getting Started</a></li>
                 <li><a href="#faq">FAQ</a></li>
                 <li><a href="#how-to">How-To Guides</a></li>
+                <li><a href="#quick-reference">Quick Reference</a></li>
                 <li><a href="#features">Features</a></li>
                 <li><a href="#glossary">Glossary</a></li>
                 <li><a href="#troubleshooting">Troubleshooting</a></li>
@@ -383,6 +438,139 @@
                         <li>Content readability scores</li>
                     </ul>
                     For advanced technical SEO like schema markup and canonical tags, upgrade to our Pro or Agency plans.
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">Why can't TigerFlow analyze my entire site at once?</div>
+                <div class="faq-answer">
+                    This is due to Webflow's Designer Extension API limitations:
+                    <ul>
+                        <li><strong>Page-by-page access:</strong> Extensions can only access the currently open page in Designer</li>
+                        <li><strong>No background processing:</strong> Analysis stops when you close the extension</li>
+                        <li><strong>Security by design:</strong> Webflow restricts bulk access to protect your site</li>
+                    </ul>
+                    <strong>Solution:</strong> Use our Bulk Analysis feature (Pro) which builds a comprehensive site audit as you navigate through pages. The more pages you visit, the smarter TigerFlow becomes at suggesting improvements!
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">How does the Smart Link Assistant work?</div>
+                <div class="faq-answer">
+                    The Smart Link Assistant (Pro/Business) helps you build better internal linking:
+                    <ul>
+                        <li><strong>Link Health Analysis:</strong> Shows if you have too few/many links</li>
+                        <li><strong>Orphaned Page Detection:</strong> Identifies pages with no internal links</li>
+                        <li><strong>Smart Suggestions:</strong> AI-powered recommendations based on content relevance</li>
+                        <li><strong>Anchor Text Optimization:</strong> Warns about generic or over-optimized anchors</li>
+                    </ul>
+                    It builds a "link graph" of your site as you analyze pages, getting smarter over time.
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">What's the difference between the pricing tiers?</div>
+                <div class="faq-answer">
+                    <table class="tier-comparison">
+                        <tr>
+                            <th>Feature</th>
+                            <th>Free</th>
+                            <th>Pro ($12/mo)</th>
+                            <th>Business ($29/mo)</th>
+                        </tr>
+                        <tr>
+                            <td>Basic SEO Analysis</td>
+                            <td>✓</td>
+                            <td>✓</td>
+                            <td>✓</td>
+                        </tr>
+                        <tr>
+                            <td>Pages per month</td>
+                            <td>10</td>
+                            <td>Unlimited</td>
+                            <td>Unlimited</td>
+                        </tr>
+                        <tr>
+                            <td>E-E-A-T Analysis</td>
+                            <td>✗</td>
+                            <td>✓</td>
+                            <td>✓</td>
+                        </tr>
+                        <tr>
+                            <td>Smart Link Assistant</td>
+                            <td>✗</td>
+                            <td>✓</td>
+                            <td>✓</td>
+                        </tr>
+                        <tr>
+                            <td>Bulk Analysis</td>
+                            <td>✗</td>
+                            <td>✓</td>
+                            <td>✓</td>
+                        </tr>
+                        <tr>
+                            <td>Export Reports</td>
+                            <td>✗</td>
+                            <td>CSV</td>
+                            <td>CSV, PDF, JSON</td>
+                        </tr>
+                        <tr>
+                            <td>Schema Markup</td>
+                            <td>✗</td>
+                            <td>✗</td>
+                            <td>✓</td>
+                        </tr>
+                        <tr>
+                            <td>White Label</td>
+                            <td>✗</td>
+                            <td>✗</td>
+                            <td>✓</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">Can I use TigerFlow on published sites?</div>
+                <div class="faq-answer">
+                    No, TigerFlow is a Webflow Designer Extension that works exclusively within the Designer interface. This means:
+                    <ul>
+                        <li>You must have edit access to the site in Webflow</li>
+                        <li>Analysis happens in real-time as you design</li>
+                        <li>Changes can be implemented immediately</li>
+                        <li>Perfect for optimizing before publishing</li>
+                    </ul>
+                    For published site analysis, export your TigerFlow reports and use them alongside tools like Google Search Console.
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">How do I implement Schema markup from TigerFlow?</div>
+                <div class="faq-answer">
+                    With the Business tier Schema Generator:
+                    <ol>
+                        <li>Go to the Schema tab in TigerFlow</li>
+                        <li>Review recommended schema types (WebPage, Article, Product, etc.)</li>
+                        <li>Click "Copy Code" on your chosen schema</li>
+                        <li>In Webflow: Click Page Settings (⚙️) → Custom Code tab</li>
+                        <li>Paste in the "Inside &lt;head&gt; tag" section</li>
+                        <li>Save and publish your site</li>
+                    </ol>
+                    <strong>Pro tip:</strong> You can use multiple schema types on the same page!
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">Why is my SEO score different from other tools?</div>
+                <div class="faq-answer">
+                    Different SEO tools use different scoring algorithms. TigerFlow is specifically optimized for Webflow sites:
+                    <ul>
+                        <li><strong>Webflow-specific factors:</strong> We understand Webflow's structure and limitations</li>
+                        <li><strong>Real-time analysis:</strong> Scores update as you edit</li>
+                        <li><strong>Actionable focus:</strong> We prioritize fixes you can actually implement in Webflow</li>
+                        <li><strong>Designer-friendly:</strong> Scoring considers visual design impact</li>
+                    </ul>
+                    Focus on improving your TigerFlow score over time rather than comparing absolute numbers across tools.
                 </div>
             </div>
             
@@ -545,6 +733,215 @@
                     <li>Don't use generic meta descriptions</li>
                     <li>Don't ignore mobile optimization</li>
                     <li>Don't forget to set up 301 redirects when changing URLs</li>
+                </ul>
+            </div>
+            
+            <h3>How to Use Bulk Site Analysis</h3>
+            <div class="step">
+                <div class="step-number">1</div>
+                <div class="step-content">
+                    <h4>Understanding Webflow's Limitations</h4>
+                    <p>Due to API restrictions, TigerFlow analyzes one page at a time. However, our Bulk Analysis feature (Pro/Business) creates a comprehensive site audit progressively:</p>
+                    <ul>
+                        <li>Navigate to each page you want to analyze</li>
+                        <li>Click "Analyze Current Page" in the Bulk Analysis tab</li>
+                        <li>TigerFlow remembers each page's data</li>
+                        <li>Build a complete site audit over time</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="step">
+                <div class="step-number">2</div>
+                <div class="step-content">
+                    <h4>Building Your Site Audit</h4>
+                    <p>Best workflow for comprehensive analysis:</p>
+                    <ol>
+                        <li>Start with your homepage</li>
+                        <li>Visit main navigation pages</li>
+                        <li>Analyze key landing pages</li>
+                        <li>Check blog posts or CMS items</li>
+                        <li>Don't forget about utility pages (Contact, About)</li>
+                    </ol>
+                    <p><strong>Tip:</strong> Your audit data persists for 30 minutes, allowing you to take breaks.</p>
+                </div>
+            </div>
+            
+            <div class="step">
+                <div class="step-number">3</div>
+                <div class="step-content">
+                    <h4>Interpreting Bulk Results</h4>
+                    <p>The Bulk Analysis dashboard shows:</p>
+                    <ul>
+                        <li><strong>Average Score:</strong> Overall site health</li>
+                        <li><strong>Critical Issues:</strong> Problems affecting multiple pages</li>
+                        <li><strong>Page Comparison:</strong> Identify your best/worst performers</li>
+                        <li><strong>Export Options:</strong> Download CSV reports for team sharing</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <h3>How to Fix Orphaned Pages with Smart Link Assistant</h3>
+            <div class="step">
+                <div class="step-number">1</div>
+                <div class="step-content">
+                    <h4>Identify Orphaned Pages</h4>
+                    <p>In the Links tab (Pro/Business), look for:</p>
+                    <ul>
+                        <li>Yellow alert: "This page has no internal links pointing to it!"</li>
+                        <li>Orphaned Pages counter in the analytics dashboard</li>
+                        <li>Pages with 0 inbound links in your link graph</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="step">
+                <div class="step-number">2</div>
+                <div class="step-content">
+                    <h4>Use Smart Suggestions</h4>
+                    <p>TigerFlow suggests relevant pages to link from based on:</p>
+                    <ul>
+                        <li>Content similarity (keyword matching)</li>
+                        <li>Pages that need more internal links</li>
+                        <li>Logical site structure</li>
+                    </ul>
+                    <p>Each suggestion includes relevance score and multiple anchor text options.</p>
+                </div>
+            </div>
+            
+            <div class="step">
+                <div class="step-number">3</div>
+                <div class="step-content">
+                    <h4>Implement Internal Links</h4>
+                    <p>To add suggested links:</p>
+                    <ol>
+                        <li>Note the suggested page and anchor text</li>
+                        <li>Find appropriate context in your content</li>
+                        <li>Add link using Webflow's link panel</li>
+                        <li>Use suggested anchor text for SEO benefit</li>
+                        <li>Refresh TigerFlow to see updated metrics</li>
+                    </ol>
+                </div>
+            </div>
+            
+            <h3>How to Track SEO Progress Over Time</h3>
+            <div class="step">
+                <div class="step-number">1</div>
+                <div class="step-content">
+                    <h4>Establish Baseline Metrics</h4>
+                    <p>Before making changes:</p>
+                    <ul>
+                        <li>Run full analysis on key pages</li>
+                        <li>Export initial reports (Pro feature)</li>
+                        <li>Document current scores and issues</li>
+                        <li>Set improvement goals (e.g., 80+ score)</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="step">
+                <div class="step-number">2</div>
+                <div class="step-content">
+                    <h4>Monthly SEO Routine</h4>
+                    <p>Consistent monitoring process:</p>
+                    <ol>
+                        <li><strong>Week 1:</strong> Analyze new content</li>
+                        <li><strong>Week 2:</strong> Fix critical issues</li>
+                        <li><strong>Week 3:</strong> Optimize underperforming pages</li>
+                        <li><strong>Week 4:</strong> Run bulk analysis and export reports</li>
+                    </ol>
+                </div>
+            </div>
+            
+            <div class="step">
+                <div class="step-number">3</div>
+                <div class="step-content">
+                    <h4>Compare Results</h4>
+                    <p>Track improvement by comparing:</p>
+                    <ul>
+                        <li>Overall SEO scores (should trend upward)</li>
+                        <li>Number of critical issues (should decrease)</li>
+                        <li>Content metrics (word count, readability)</li>
+                        <li>Link health (fewer orphaned pages)</li>
+                    </ul>
+                    <p><strong>Pro tip:</strong> Keep exported CSV reports to create progress charts in Excel/Google Sheets.</p>
+                </div>
+            </div>
+            
+            <h3>How to Optimize for E-E-A-T Signals</h3>
+            <div class="step">
+                <div class="step-number">1</div>
+                <div class="step-content">
+                    <h4>Understanding E-E-A-T</h4>
+                    <p>Google's quality guidelines focus on:</p>
+                    <ul>
+                        <li><strong>Experience:</strong> First-hand knowledge of the topic</li>
+                        <li><strong>Expertise:</strong> Subject matter knowledge</li>
+                        <li><strong>Authoritativeness:</strong> Recognition in your field</li>
+                        <li><strong>Trustworthiness:</strong> Credibility and reliability</li>
+                    </ul>
+                    <p>TigerFlow's E-E-A-T analysis (Pro) shows which signals you're missing.</p>
+                </div>
+            </div>
+            
+            <div class="step">
+                <div class="step-number">2</div>
+                <div class="step-content">
+                    <h4>Implement E-E-A-T Improvements</h4>
+                    <p>Based on TigerFlow's recommendations:</p>
+                    <ul>
+                        <li>Add author bios with credentials</li>
+                        <li>Include publication/update dates</li>
+                        <li>Link to authoritative sources</li>
+                        <li>Display certifications or awards</li>
+                        <li>Add schema markup for authors (Business tier)</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="warning-box">
+                <h4>⚠️ Important Limitations to Understand</h4>
+                <ul>
+                    <li><strong>No bulk operations:</strong> Can't update multiple pages simultaneously</li>
+                    <li><strong>Designer-only:</strong> Doesn't work on published sites</li>
+                    <li><strong>Page refresh required:</strong> Some changes need page reload to detect</li>
+                    <li><strong>CMS limitations:</strong> Some SEO fields may be in Collection settings, not Designer</li>
+                    <li><strong>Custom code restrictions:</strong> Based on your Webflow plan</li>
+                </ul>
+            </div>
+        </section>
+        
+        <!-- Quick Reference Section -->
+        <section id="quick-reference" class="docs-section">
+            <h2>Quick Reference</h2>
+            
+            <div class="reference-card">
+                <h3>Keyboard Shortcuts</h3>
+                <ul>
+                    <li><kbd>Tab</kbd> - Navigate between main sections</li>
+                    <li><kbd>Enter</kbd> - Activate selected button</li>
+                    <li><kbd>Esc</kbd> - Close modals or overlays</li>
+                </ul>
+            </div>
+            
+            <div class="reference-card">
+                <h3>Score Benchmarks</h3>
+                <ul>
+                    <li><strong>90-100:</strong> Excellent - Publish with confidence</li>
+                    <li><strong>70-89:</strong> Good - Minor improvements recommended</li>
+                    <li><strong>50-69:</strong> Fair - Address yellow warnings</li>
+                    <li><strong>Below 50:</strong> Poor - Fix critical issues first</li>
+                </ul>
+            </div>
+            
+            <div class="reference-card">
+                <h3>Monthly Tasks</h3>
+                <ul>
+                    <li>Run bulk analysis on all key pages</li>
+                    <li>Check for new orphaned pages</li>
+                    <li>Update meta descriptions for seasonal content</li>
+                    <li>Export and archive SEO reports</li>
+                    <li>Review and fix any broken links</li>
                 </ul>
             </div>
         </section>
