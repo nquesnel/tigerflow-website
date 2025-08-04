@@ -9,27 +9,28 @@
         .docs-container {
             max-width: 900px;
             margin: 0 auto;
-            padding: 60px 20px;
+            padding: 40px 20px 60px;
         }
         
         .docs-nav {
             position: sticky;
             top: 60px;
             background: white;
-            padding: 20px 0;
-            margin-bottom: 40px;
+            padding: 16px 0;
+            margin-bottom: 30px;
             border-bottom: 1px solid #E9ECEF;
             z-index: 10;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
         }
         
         .docs-nav ul {
             list-style: none;
             display: flex;
-            gap: 30px;
+            gap: 24px;
             margin: 0;
             padding: 0;
             flex-wrap: wrap;
+            justify-content: center;
         }
         
         .docs-nav a {
@@ -45,8 +46,8 @@
         }
         
         .docs-section {
-            margin-bottom: 80px;
-            scroll-margin-top: 120px;
+            margin-bottom: 60px;
+            scroll-margin-top: 110px;
         }
         
         .docs-section h2 {
@@ -70,47 +71,103 @@
         }
         
         .faq-item {
-            background: #F8F9FA;
-            border-radius: 10px;
-            padding: 25px;
-            margin-bottom: 20px;
+            background: #FFFFFF;
+            border-radius: 12px;
+            margin-bottom: 16px;
             border: 1px solid #E9ECEF;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+        
+        .faq-item:hover {
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
         }
         
         .faq-question {
             font-weight: 600;
             color: #1A1A1A;
-            font-size: 1.2em;
-            margin-bottom: 10px;
+            font-size: 1.1em;
+            padding: 20px 24px;
+            margin: 0;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: #F8F9FA;
+            transition: background 0.2s ease;
+        }
+        
+        .faq-question:hover {
+            background: #F0F4F8;
+        }
+        
+        .faq-question::after {
+            content: '+';
+            font-size: 1.5em;
+            font-weight: 300;
+            color: #FF6B35;
+            transition: transform 0.3s ease;
+        }
+        
+        .faq-item.active .faq-question::after {
+            transform: rotate(45deg);
         }
         
         .faq-answer {
             color: #6C757D;
             line-height: 1.8;
+            padding: 0 24px;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease, padding 0.3s ease;
+        }
+        
+        .faq-item.active .faq-answer {
+            padding: 20px 24px 24px;
+            max-height: 1000px;
         }
         
         .step {
             display: flex;
-            gap: 20px;
+            gap: 24px;
             margin-bottom: 30px;
             align-items: flex-start;
+            padding: 20px;
+            background: #f0f4f8;
+            border: 1px solid #e1e8ed;
+            border-radius: 12px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
         }
         
         .step-number {
             background: #FF6B35;
             color: white;
-            width: 40px;
-            height: 40px;
+            width: 48px;
+            height: 48px;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             font-weight: bold;
+            font-size: 20px;
             flex-shrink: 0;
         }
         
         .step-content {
             flex: 1;
+        }
+        
+        .step-content h4 {
+            margin-top: 0;
+            margin-bottom: 12px;
+            font-size: 1.2em;
+            color: #1A1A1A;
+        }
+        
+        .step-content p {
+            margin-bottom: 0;
+            color: #6C757D;
+            line-height: 1.6;
         }
         
         .feature-grid {
@@ -257,6 +314,61 @@
             font-family: monospace;
             font-size: 0.9em;
         }
+        
+        /* How-To Guides Styling */
+        .how-to-section {
+            margin-bottom: 60px;
+        }
+        
+        .how-to-section h3 {
+            font-size: 1.75em;
+            color: #1A1A1A;
+            margin: 40px 0 30px;
+            padding-bottom: 12px;
+            border-bottom: 2px solid #FFB627;
+        }
+        
+        .step h4 {
+            color: #1A1A1A;
+            font-size: 1.25em;
+            margin-top: 0;
+            margin-bottom: 12px;
+        }
+        
+        .step p {
+            color: #6C757D;
+            margin-bottom: 12px;
+        }
+        
+        .step ul {
+            list-style: none;
+            padding-left: 0;
+            margin: 0;
+        }
+        
+        .step ul li {
+            padding: 8px 0 8px 28px;
+            position: relative;
+            color: #495057;
+            line-height: 1.6;
+        }
+        
+        .step ul li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #FF6B35;
+            font-weight: bold;
+            font-size: 16px;
+        }
+        
+        .step code {
+            background: #f8f9fa;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-size: 0.9em;
+            color: #e83e8c;
+        }
     </style>
 </head>
 <body>
@@ -285,7 +397,7 @@
                 <li><a href="#getting-started">Getting Started</a></li>
                 <li><a href="#faq">FAQ</a></li>
                 <li><a href="#how-to">How-To Guides</a></li>
-                <li><a href="#quick-reference">Quick Reference</a></li>
+                <li><a href="#quick-reference">Quick Ref</a></li>
                 <li><a href="#features">Features</a></li>
                 <li><a href="#glossary">Glossary</a></li>
                 <li><a href="#troubleshooting">Troubleshooting</a></li>
@@ -299,58 +411,58 @@
             <p>Welcome to TigerFlow! This guide will help you get up and running with the most powerful SEO analyzer for Webflow Designer. Follow these simple steps to start optimizing your pages for search engines.</p>
             
             <h3>Installation</h3>
-            <div class="step">
-                <div class="step-number">1</div>
-                <div class="step-content">
+            <div class="step" style="background: #f0f4f8 !important; border: 1px solid #e1e8ed !important; padding: 20px !important; border-radius: 12px !important;">
+                <div class="step-number" style="background: #FF6B35; color: white; width: 48px; height: 48px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 20px; flex-shrink: 0;">1</div>
+                <div class="step-content" style="flex: 1;">
                     <h4>Open Webflow Designer</h4>
                     <p>Launch Webflow Designer and open any project you want to optimize.</p>
                 </div>
             </div>
             
-            <div class="step">
-                <div class="step-number">2</div>
-                <div class="step-content">
+            <div class="step" style="display: flex; gap: 24px; margin-bottom: 30px; align-items: flex-start; padding: 20px; background: #f0f4f8; border: 1px solid #e1e8ed; border-radius: 12px; box-shadow: 0 2px 4px rgba(0,0,0,0.05);">
+                <div class="step-number" style="background: #FF6B35; color: white; width: 48px; height: 48px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 20px; flex-shrink: 0;">2</div>
+                <div class="step-content" style="flex: 1;">
                     <h4>Access Extensions</h4>
                     <p>Click on the Extensions icon in the left sidebar or press <code>E</code> on your keyboard.</p>
                 </div>
             </div>
             
-            <div class="step">
-                <div class="step-number">3</div>
-                <div class="step-content">
+            <div class="step" style="display: flex; gap: 24px; margin-bottom: 30px; align-items: flex-start; padding: 20px; background: #f0f4f8; border: 1px solid #e1e8ed; border-radius: 12px; box-shadow: 0 2px 4px rgba(0,0,0,0.05);">
+                <div class="step-number" style="background: #FF6B35; color: white; width: 48px; height: 48px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 20px; flex-shrink: 0;">3</div>
+                <div class="step-content" style="flex: 1;">
                     <h4>Find TigerFlow</h4>
                     <p>Search for "TigerFlow" in the extensions marketplace or browse the SEO category.</p>
                 </div>
             </div>
             
-            <div class="step">
-                <div class="step-number">4</div>
-                <div class="step-content">
+            <div class="step" style="display: flex; gap: 24px; margin-bottom: 30px; align-items: flex-start; padding: 20px; background: #f0f4f8; border: 1px solid #e1e8ed; border-radius: 12px; box-shadow: 0 2px 4px rgba(0,0,0,0.05);">
+                <div class="step-number" style="background: #FF6B35; color: white; width: 48px; height: 48px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 20px; flex-shrink: 0;">4</div>
+                <div class="step-content" style="flex: 1;">
                     <h4>Install & Launch</h4>
                     <p>Click "Install" and then "Open" to launch TigerFlow. The extension will appear as a floating panel.</p>
                 </div>
             </div>
 
             <h3>First Time Setup</h3>
-            <div class="step">
-                <div class="step-number">1</div>
-                <div class="step-content">
+            <div class="step" style="display: flex; gap: 24px; margin-bottom: 30px; align-items: flex-start; padding: 20px; background: #f0f4f8; border: 1px solid #e1e8ed; border-radius: 12px; box-shadow: 0 2px 4px rgba(0,0,0,0.05);">
+                <div class="step-number" style="background: #FF6B35; color: white; width: 48px; height: 48px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 20px; flex-shrink: 0;">1</div>
+                <div class="step-content" style="flex: 1;">
                     <h4>Set Your Focus Keyword</h4>
                     <p>Enter your target keyword for the page. This is the main term you want to rank for in search results. TigerFlow will save this automatically for future sessions.</p>
                 </div>
             </div>
             
-            <div class="step">
-                <div class="step-number">2</div>
-                <div class="step-content">
+            <div class="step" style="display: flex; gap: 24px; margin-bottom: 30px; align-items: flex-start; padding: 20px; background: #f0f4f8; border: 1px solid #e1e8ed; border-radius: 12px; box-shadow: 0 2px 4px rgba(0,0,0,0.05);">
+                <div class="step-number" style="background: #FF6B35; color: white; width: 48px; height: 48px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 20px; flex-shrink: 0;">2</div>
+                <div class="step-content" style="flex: 1;">
                     <h4>Review Your SEO Score</h4>
                     <p>TigerFlow instantly analyzes your page and provides a score from 0-100. Green (70+) is good, yellow (40-69) needs work, and red (below 40) requires immediate attention.</p>
                 </div>
             </div>
             
-            <div class="step">
-                <div class="step-number">3</div>
-                <div class="step-content">
+            <div class="step" style="display: flex; gap: 24px; margin-bottom: 30px; align-items: flex-start; padding: 20px; background: #f0f4f8; border: 1px solid #e1e8ed; border-radius: 12px; box-shadow: 0 2px 4px rgba(0,0,0,0.05);">
+                <div class="step-number" style="background: #FF6B35; color: white; width: 48px; height: 48px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 20px; flex-shrink: 0;">3</div>
+                <div class="step-content" style="flex: 1;">
                     <h4>Follow Recommendations</h4>
                     <p>Click on the "SEO Recommendations" section to see specific actions you can take to improve your score.</p>
                 </div>
@@ -593,10 +705,11 @@
         <section id="how-to" class="docs-section">
             <h2>How-To Guides</h2>
             
-            <h3>How to Improve Your SEO Score</h3>
-            <div class="step">
-                <div class="step-number">1</div>
-                <div class="step-content">
+            <div class="how-to-section">
+                <h3>How to Improve Your SEO Score</h3>
+            <div class="step" style="display: flex; gap: 24px; margin-bottom: 30px; align-items: flex-start; padding: 20px; background: #f0f4f8; border: 1px solid #e1e8ed; border-radius: 12px; box-shadow: 0 2px 4px rgba(0,0,0,0.05);">
+                <div class="step-number" style="background: #FF6B35; color: white; width: 48px; height: 48px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 20px; flex-shrink: 0;">1</div>
+                <div class="step-content" style="flex: 1;">
                     <h4>Fix Critical Errors First</h4>
                     <p>Go to SEO Recommendations → "To Fix" tab. Address red error items before warnings. Common quick wins:</p>
                     <ul>
@@ -608,9 +721,9 @@
                 </div>
             </div>
             
-            <div class="step">
-                <div class="step-number">2</div>
-                <div class="step-content">
+            <div class="step" style="display: flex; gap: 24px; margin-bottom: 30px; align-items: flex-start; padding: 20px; background: #f0f4f8; border: 1px solid #e1e8ed; border-radius: 12px; box-shadow: 0 2px 4px rgba(0,0,0,0.05);">
+                <div class="step-number" style="background: #FF6B35; color: white; width: 48px; height: 48px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 20px; flex-shrink: 0;">2</div>
+                <div class="step-content" style="flex: 1;">
                     <h4>Optimize Content Length</h4>
                     <p>Check the Content Analysis section. If word count is low:</p>
                     <ul>
@@ -622,9 +735,9 @@
                 </div>
             </div>
             
-            <div class="step">
-                <div class="step-number">3</div>
-                <div class="step-content">
+            <div class="step" style="display: flex; gap: 24px; margin-bottom: 30px; align-items: flex-start; padding: 20px; background: #f0f4f8; border: 1px solid #e1e8ed; border-radius: 12px; box-shadow: 0 2px 4px rgba(0,0,0,0.05);">
+                <div class="step-number" style="background: #FF6B35; color: white; width: 48px; height: 48px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 20px; flex-shrink: 0;">3</div>
+                <div class="step-content" style="flex: 1;">
                     <h4>Perfect Your Keyword Strategy</h4>
                     <p>Ensure your focus keyword appears in:</p>
                     <ul>
@@ -637,10 +750,13 @@
                 </div>
             </div>
 
-            <h3>How to Optimize Images for SEO</h3>
-            <div class="step">
-                <div class="step-number">1</div>
-                <div class="step-content">
+            </div>
+            
+            <div class="how-to-section">
+                <h3>How to Optimize Images for SEO</h3>
+            <div class="step" style="display: flex; gap: 24px; margin-bottom: 30px; align-items: flex-start; padding: 20px; background: #f0f4f8; border: 1px solid #e1e8ed; border-radius: 12px; box-shadow: 0 2px 4px rgba(0,0,0,0.05);">
+                <div class="step-number" style="background: #FF6B35; color: white; width: 48px; height: 48px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 20px; flex-shrink: 0;">1</div>
+                <div class="step-content" style="flex: 1;">
                     <h4>Add Descriptive Alt Text</h4>
                     <p>Every image needs alt text that:</p>
                     <ul>
@@ -652,9 +768,9 @@
                 </div>
             </div>
             
-            <div class="step">
-                <div class="step-number">2</div>
-                <div class="step-content">
+            <div class="step" style="display: flex; gap: 24px; margin-bottom: 30px; align-items: flex-start; padding: 20px; background: #f0f4f8; border: 1px solid #e1e8ed; border-radius: 12px; box-shadow: 0 2px 4px rgba(0,0,0,0.05);">
+                <div class="step-number" style="background: #FF6B35; color: white; width: 48px; height: 48px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 20px; flex-shrink: 0;">2</div>
+                <div class="step-content" style="flex: 1;">
                     <h4>Use SEO-Friendly File Names</h4>
                     <p>Before uploading images:</p>
                     <ul>
@@ -667,10 +783,13 @@
                 </div>
             </div>
 
-            <h3>How to Structure Content for SEO</h3>
-            <div class="step">
-                <div class="step-number">1</div>
-                <div class="step-content">
+            </div>
+            
+            <div class="how-to-section">
+                <h3>How to Structure Content for SEO</h3>
+            <div class="step" style="display: flex; gap: 24px; margin-bottom: 30px; align-items: flex-start; padding: 20px; background: #f0f4f8; border: 1px solid #e1e8ed; border-radius: 12px; box-shadow: 0 2px 4px rgba(0,0,0,0.05);">
+                <div class="step-number" style="background: #FF6B35; color: white; width: 48px; height: 48px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 20px; flex-shrink: 0;">1</div>
+                <div class="step-content" style="flex: 1;">
                     <h4>Create Logical Heading Hierarchy</h4>
                     <p>Proper heading structure:</p>
                     <ul>
@@ -682,9 +801,9 @@
                 </div>
             </div>
             
-            <div class="step">
-                <div class="step-number">2</div>
-                <div class="step-content">
+            <div class="step" style="display: flex; gap: 24px; margin-bottom: 30px; align-items: flex-start; padding: 20px; background: #f0f4f8; border: 1px solid #e1e8ed; border-radius: 12px; box-shadow: 0 2px 4px rgba(0,0,0,0.05);">
+                <div class="step-number" style="background: #FF6B35; color: white; width: 48px; height: 48px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 20px; flex-shrink: 0;">2</div>
+                <div class="step-content" style="flex: 1;">
                     <h4>Optimize Paragraph Length</h4>
                     <p>For better readability:</p>
                     <ul>
@@ -696,10 +815,13 @@
                 </div>
             </div>
 
-            <h3>How to Build Quality Links</h3>
-            <div class="step">
-                <div class="step-number">1</div>
-                <div class="step-content">
+            </div>
+            
+            <div class="how-to-section">
+                <h3>How to Build Quality Links</h3>
+            <div class="step" style="display: flex; gap: 24px; margin-bottom: 30px; align-items: flex-start; padding: 20px; background: #f0f4f8; border: 1px solid #e1e8ed; border-radius: 12px; box-shadow: 0 2px 4px rgba(0,0,0,0.05);">
+                <div class="step-number" style="background: #FF6B35; color: white; width: 48px; height: 48px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 20px; flex-shrink: 0;">1</div>
+                <div class="step-content" style="flex: 1;">
                     <h4>Internal Linking Strategy</h4>
                     <p>Connect related pages:</p>
                     <ul>
@@ -711,9 +833,9 @@
                 </div>
             </div>
             
-            <div class="step">
-                <div class="step-number">2</div>
-                <div class="step-content">
+            <div class="step" style="display: flex; gap: 24px; margin-bottom: 30px; align-items: flex-start; padding: 20px; background: #f0f4f8; border: 1px solid #e1e8ed; border-radius: 12px; box-shadow: 0 2px 4px rgba(0,0,0,0.05);">
+                <div class="step-number" style="background: #FF6B35; color: white; width: 48px; height: 48px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 20px; flex-shrink: 0;">2</div>
+                <div class="step-content" style="flex: 1;">
                     <h4>External Link Best Practices</h4>
                     <p>When linking to other sites:</p>
                     <ul>
@@ -725,6 +847,8 @@
                 </div>
             </div>
 
+            </div>
+            
             <div class="warning-box">
                 <h4>⚠️ Common Mistakes to Avoid</h4>
                 <ul>
@@ -737,9 +861,9 @@
             </div>
             
             <h3>How to Use Bulk Site Analysis</h3>
-            <div class="step">
-                <div class="step-number">1</div>
-                <div class="step-content">
+            <div class="step" style="display: flex; gap: 24px; margin-bottom: 30px; align-items: flex-start; padding: 20px; background: #f0f4f8; border: 1px solid #e1e8ed; border-radius: 12px; box-shadow: 0 2px 4px rgba(0,0,0,0.05);">
+                <div class="step-number" style="background: #FF6B35; color: white; width: 48px; height: 48px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 20px; flex-shrink: 0;">1</div>
+                <div class="step-content" style="flex: 1;">
                     <h4>Understanding Webflow's Limitations</h4>
                     <p>Due to API restrictions, TigerFlow analyzes one page at a time. However, our Bulk Analysis feature (Pro/Business) creates a comprehensive site audit progressively:</p>
                     <ul>
@@ -751,9 +875,9 @@
                 </div>
             </div>
             
-            <div class="step">
-                <div class="step-number">2</div>
-                <div class="step-content">
+            <div class="step" style="display: flex; gap: 24px; margin-bottom: 30px; align-items: flex-start; padding: 20px; background: #f0f4f8; border: 1px solid #e1e8ed; border-radius: 12px; box-shadow: 0 2px 4px rgba(0,0,0,0.05);">
+                <div class="step-number" style="background: #FF6B35; color: white; width: 48px; height: 48px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 20px; flex-shrink: 0;">2</div>
+                <div class="step-content" style="flex: 1;">
                     <h4>Building Your Site Audit</h4>
                     <p>Best workflow for comprehensive analysis:</p>
                     <ol>
@@ -767,9 +891,9 @@
                 </div>
             </div>
             
-            <div class="step">
-                <div class="step-number">3</div>
-                <div class="step-content">
+            <div class="step" style="display: flex; gap: 24px; margin-bottom: 30px; align-items: flex-start; padding: 20px; background: #f0f4f8; border: 1px solid #e1e8ed; border-radius: 12px; box-shadow: 0 2px 4px rgba(0,0,0,0.05);">
+                <div class="step-number" style="background: #FF6B35; color: white; width: 48px; height: 48px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 20px; flex-shrink: 0;">3</div>
+                <div class="step-content" style="flex: 1;">
                     <h4>Interpreting Bulk Results</h4>
                     <p>The Bulk Analysis dashboard shows:</p>
                     <ul>
@@ -782,9 +906,9 @@
             </div>
             
             <h3>How to Fix Orphaned Pages with Smart Link Assistant</h3>
-            <div class="step">
-                <div class="step-number">1</div>
-                <div class="step-content">
+            <div class="step" style="display: flex; gap: 24px; margin-bottom: 30px; align-items: flex-start; padding: 20px; background: #f0f4f8; border: 1px solid #e1e8ed; border-radius: 12px; box-shadow: 0 2px 4px rgba(0,0,0,0.05);">
+                <div class="step-number" style="background: #FF6B35; color: white; width: 48px; height: 48px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 20px; flex-shrink: 0;">1</div>
+                <div class="step-content" style="flex: 1;">
                     <h4>Identify Orphaned Pages</h4>
                     <p>In the Links tab (Pro/Business), look for:</p>
                     <ul>
@@ -795,9 +919,9 @@
                 </div>
             </div>
             
-            <div class="step">
-                <div class="step-number">2</div>
-                <div class="step-content">
+            <div class="step" style="display: flex; gap: 24px; margin-bottom: 30px; align-items: flex-start; padding: 20px; background: #f0f4f8; border: 1px solid #e1e8ed; border-radius: 12px; box-shadow: 0 2px 4px rgba(0,0,0,0.05);">
+                <div class="step-number" style="background: #FF6B35; color: white; width: 48px; height: 48px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 20px; flex-shrink: 0;">2</div>
+                <div class="step-content" style="flex: 1;">
                     <h4>Use Smart Suggestions</h4>
                     <p>TigerFlow suggests relevant pages to link from based on:</p>
                     <ul>
@@ -809,9 +933,9 @@
                 </div>
             </div>
             
-            <div class="step">
-                <div class="step-number">3</div>
-                <div class="step-content">
+            <div class="step" style="display: flex; gap: 24px; margin-bottom: 30px; align-items: flex-start; padding: 20px; background: #f0f4f8; border: 1px solid #e1e8ed; border-radius: 12px; box-shadow: 0 2px 4px rgba(0,0,0,0.05);">
+                <div class="step-number" style="background: #FF6B35; color: white; width: 48px; height: 48px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 20px; flex-shrink: 0;">3</div>
+                <div class="step-content" style="flex: 1;">
                     <h4>Implement Internal Links</h4>
                     <p>To add suggested links:</p>
                     <ol>
@@ -825,9 +949,9 @@
             </div>
             
             <h3>How to Track SEO Progress Over Time</h3>
-            <div class="step">
-                <div class="step-number">1</div>
-                <div class="step-content">
+            <div class="step" style="display: flex; gap: 24px; margin-bottom: 30px; align-items: flex-start; padding: 20px; background: #f0f4f8; border: 1px solid #e1e8ed; border-radius: 12px; box-shadow: 0 2px 4px rgba(0,0,0,0.05);">
+                <div class="step-number" style="background: #FF6B35; color: white; width: 48px; height: 48px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 20px; flex-shrink: 0;">1</div>
+                <div class="step-content" style="flex: 1;">
                     <h4>Establish Baseline Metrics</h4>
                     <p>Before making changes:</p>
                     <ul>
@@ -839,9 +963,9 @@
                 </div>
             </div>
             
-            <div class="step">
-                <div class="step-number">2</div>
-                <div class="step-content">
+            <div class="step" style="display: flex; gap: 24px; margin-bottom: 30px; align-items: flex-start; padding: 20px; background: #f0f4f8; border: 1px solid #e1e8ed; border-radius: 12px; box-shadow: 0 2px 4px rgba(0,0,0,0.05);">
+                <div class="step-number" style="background: #FF6B35; color: white; width: 48px; height: 48px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 20px; flex-shrink: 0;">2</div>
+                <div class="step-content" style="flex: 1;">
                     <h4>Monthly SEO Routine</h4>
                     <p>Consistent monitoring process:</p>
                     <ol>
@@ -853,9 +977,9 @@
                 </div>
             </div>
             
-            <div class="step">
-                <div class="step-number">3</div>
-                <div class="step-content">
+            <div class="step" style="display: flex; gap: 24px; margin-bottom: 30px; align-items: flex-start; padding: 20px; background: #f0f4f8; border: 1px solid #e1e8ed; border-radius: 12px; box-shadow: 0 2px 4px rgba(0,0,0,0.05);">
+                <div class="step-number" style="background: #FF6B35; color: white; width: 48px; height: 48px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 20px; flex-shrink: 0;">3</div>
+                <div class="step-content" style="flex: 1;">
                     <h4>Compare Results</h4>
                     <p>Track improvement by comparing:</p>
                     <ul>
@@ -869,9 +993,9 @@
             </div>
             
             <h3>How to Optimize for E-E-A-T Signals</h3>
-            <div class="step">
-                <div class="step-number">1</div>
-                <div class="step-content">
+            <div class="step" style="display: flex; gap: 24px; margin-bottom: 30px; align-items: flex-start; padding: 20px; background: #f0f4f8; border: 1px solid #e1e8ed; border-radius: 12px; box-shadow: 0 2px 4px rgba(0,0,0,0.05);">
+                <div class="step-number" style="background: #FF6B35; color: white; width: 48px; height: 48px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 20px; flex-shrink: 0;">1</div>
+                <div class="step-content" style="flex: 1;">
                     <h4>Understanding E-E-A-T</h4>
                     <p>Google's quality guidelines focus on:</p>
                     <ul>
@@ -884,9 +1008,9 @@
                 </div>
             </div>
             
-            <div class="step">
-                <div class="step-number">2</div>
-                <div class="step-content">
+            <div class="step" style="display: flex; gap: 24px; margin-bottom: 30px; align-items: flex-start; padding: 20px; background: #f0f4f8; border: 1px solid #e1e8ed; border-radius: 12px; box-shadow: 0 2px 4px rgba(0,0,0,0.05);">
+                <div class="step-number" style="background: #FF6B35; color: white; width: 48px; height: 48px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 20px; flex-shrink: 0;">2</div>
+                <div class="step-content" style="flex: 1;">
                     <h4>Implement E-E-A-T Improvements</h4>
                     <p>Based on TigerFlow's recommendations:</p>
                     <ul>
@@ -1255,5 +1379,32 @@
             <p>&copy; 2025 TigerFlow. All rights reserved.</p>
         </div>
     </footer>
+    <script>
+        // Make FAQ items collapsible
+        document.addEventListener('DOMContentLoaded', function() {
+            const faqItems = document.querySelectorAll('.faq-item');
+            
+            faqItems.forEach(item => {
+                const question = item.querySelector('.faq-question');
+                
+                question.addEventListener('click', () => {
+                    // Close all other FAQs
+                    faqItems.forEach(otherItem => {
+                        if (otherItem !== item) {
+                            otherItem.classList.remove('active');
+                        }
+                    });
+                    
+                    // Toggle current FAQ
+                    item.classList.toggle('active');
+                });
+            });
+            
+            // Open first FAQ by default
+            if (faqItems.length > 0) {
+                faqItems[0].classList.add('active');
+            }
+        });
+    </script>
 </body>
 </html>
